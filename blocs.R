@@ -4,6 +4,7 @@ library(readxl)
 library(mapview)
 library(sf)
 library(knitr)
+library(rmarkdown)
 
 ### import and format google map list
 #d<-as.data.frame(read_excel("C:/Users/User/Documents/FR/blocs.xlsx",sheet=2,col_names=FALSE))
@@ -33,7 +34,7 @@ write.csv(st_coordinates(blocs)[,c("X","Y")],"C:/Users/User/Documents/GitHub/blo
 st_write(blocs,dsn="C:/Users/User/Documents/GitHub/blocs/blocs.kml",driver="KML",delete_dsn=TRUE)
 
 ### knit .Rmd
-knit("C:/Users/User/Documents/GitHub/blocs/blocs.Rmd")
+render("C:/Users/User/Documents/GitHub/blocs/blocs.Rmd")
 
 #git.exe push origin HEAD:refs/heads/master
 
