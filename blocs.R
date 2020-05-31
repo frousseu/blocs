@@ -3,6 +3,7 @@
 library(readxl)
 library(mapview)
 library(sf)
+library(knitr)
 
 ### import and format google map list
 #d<-as.data.frame(read_excel("C:/Users/User/Documents/FR/blocs.xlsx",sheet=2,col_names=FALSE))
@@ -25,8 +26,14 @@ l<-lapply(layers,function(i){
 	 st_read("C:/Users/User/Documents/FR/My Places.kml",layer=i)
 })
 x<-do.call("rbind",l)
-x<-unique(x)
+blocs<-unique(x)
 
 ### write csv and kml for next adds
-write.csv(st_coordinates(x)[,c("X","Y")],"C:/Users/User/Documents/GitHub/blocs/blocs.csv",row.names=FALSE)
-st_write(x,dsn="C:/Users/User/Documents/GitHub/blocs/blocs.kml",driver="KML",delete_dsn=TRUE)
+write.csv(st_coordinates(blocs)[,c("X","Y")],"C:/Users/User/Documents/GitHub/blocs/blocs.csv",row.names=FALSE)
+st_write(blocs,dsn="C:/Users/User/Documents/GitHub/blocs/blocs.kml",driver="KML",delete_dsn=TRUE)
+
+### knit .Rmd
+knit("C:/Users/User/Documents/GitHub/blocs/blocs.Rmd")
+
+
+
