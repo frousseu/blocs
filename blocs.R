@@ -38,6 +38,12 @@ knit("C:/Users/User/Documents/GitHub/blocs/blocs.Rmd")
 #git.exe push origin HEAD:refs/heads/master
 
 system("git add blocs.R blocs.Rmd")
-system("git commit blocs.R blocs.Rmd -m \"commit message\"")
+system("git commit blocs.R blocs.Rmd -m \"...\"")
 system("git push origin master")
 
+system("git checkout gh-pages")
+system("git add index.html blocs.html")
+system("git commit index.html blocs.html -m \"...\"")
+system("git push origin gh-pages")
+
+system("git checkout master")
