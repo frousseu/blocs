@@ -35,5 +35,5 @@ st_write(blocs,dsn="C:/Users/User/Documents/GitHub/blocs/blocs.kml",driver="KML"
 ### knit .Rmd
 knit("C:/Users/User/Documents/GitHub/blocs/blocs.Rmd")
 
-
+git.exe push origin HEAD:refs/heads/master
 
